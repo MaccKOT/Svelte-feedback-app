@@ -1,14 +1,13 @@
 <script>
+  import { FeedbackStore } from '../store/stores';
   import Card from './Card.svelte';
-  import { createEventDispatcher } from 'svelte';
 
   export let item;
 
-  const dispatch = createEventDispatcher();
-
   const nandleDelete = (itemId) => {
-    // we need dispatch custom event and delete item in array in App component
-    dispatch('delete-feedback', itemId);
+    FeedbackStore.update((currentFeedback) => {
+      return currentFeedback.filter((item) => item.id !== itemId);
+    });
   };
 </script>
 
