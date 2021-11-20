@@ -6,6 +6,6 @@
 
 [Original code repo](https://github.com/bradtraversy/svelte-feedback-app)
 
-👀[Live Demo]()
+👀[Live Demo](https://wizardly-borg-6ccadc.netlify.app/)
 
 Created with ⚡ [Vite](https://vitejs.dev/)
