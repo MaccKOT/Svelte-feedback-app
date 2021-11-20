@@ -1,5 +1,6 @@
 <script>
   import FeedbackList from './components/FeedbackList.svelte';
+  import FeedbackStats from './components/FeedbackStats.svelte';
 
   // initial store
   let feedback = [
@@ -20,6 +21,9 @@
     },
   ];
 
+  $: averageRating =
+    feedback.reduce((a, { rating }) => a + rating, 0) / feedback.length;
+
   const deleteFeedback = (e) => {
     // console.log(e.detail); // our data from custom event
     const itemId = e.detail;
@@ -29,6 +33,7 @@
 </script>
 
 <main class="container">
+  <FeedbackStats count={feedback.length} {averageRating} />
   <FeedbackList {feedback} on:delete-feedback={deleteFeedback} />
 </main>
 
